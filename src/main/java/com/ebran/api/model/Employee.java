@@ -9,6 +9,8 @@ public class Employee implements Serializable {
     private String email;
     private String address;
 
+    public Employee() {}
+
     public Employee(int id, String name, String email, String address) {
         this.id = id;
         this.name = name;
