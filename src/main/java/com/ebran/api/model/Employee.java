@@ -1,6 +1,9 @@
 package com.ebran.api.model;
 
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
+
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Employee implements Serializable {
 
@@ -9,13 +12,29 @@ public class Employee implements Serializable {
     private String email;
     private String address;
 
+    private ArrayList<String> hobbies;
+
+    @JsonUnwrapped
+    private Department department;
+
     public Employee() {}
 
-    public Employee(int id, String name, String email, String address) {
+    public Employee(int id, String name, String email, String address, Department department) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.address = address;
+        this.department = department;
+
+        hobbies = new ArrayList<>();
+    }
+
+    public ArrayList<String> getHobbies() {
+        return hobbies;
+    }
+
+    public void setHobbies(ArrayList<String> hobbies) {
+        this.hobbies = hobbies;
     }
 
     public void setId(int id) {
@@ -48,5 +67,13 @@ public class Employee implements Serializable {
 
     public String getAddress() {
         return address;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 }

@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class App {
-    public static Scanner in;
+    private static Scanner in;
 
     public static void main(String[] args) {
         in = new Scanner(System.in);
